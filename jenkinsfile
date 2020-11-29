@@ -22,5 +22,15 @@ node("Maven-Jenkins-Agent") {
         junit '**/target/surefire-reports/TEST-*.xml'
         archiveArtifacts 'target/*.jar'
     }
+    
+    stage('mail'){
+        mail bcc: '', body: '''Hello Sachin
+
+        Please find the build status
+
+        Thanks and Regards
+
+        ''', cc: '', from: '', replyTo: '', subject: 'Build Status', to: 'sjdhote@gmail.com'
+    }
 }
 
